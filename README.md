@@ -1,9 +1,7 @@
 # Supermarket Product Deduplication & Knowledge Graph (Neo4j)
 
-End-to-end project cleaning, deduplicating, and modeling supermarket product data into a **Neo4j knowledge graph** to enable unified product comparison across multiple retailers in New Zealand.
-
 ## Overview
-Standardized inconsistent supermarket product data and modeled it into a knowledge graph, allowing users to search for a product once and compare equivalent items and prices across stores.
+Built an end-to-end data pipeline to clean, standardize, and deduplicate supermarket product data, modeling it into a Neo4j knowledge graph that enables unified product search and cross-retailer price comparison across multiple New Zealand supermarkets.
 
 ## Workflow & Tools
 - Cleaned and consolidated raw data using **Excel** and **Power Query**
