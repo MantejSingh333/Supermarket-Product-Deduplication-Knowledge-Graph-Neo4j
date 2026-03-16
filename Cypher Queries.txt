@@ -1,0 +1,32 @@
+MATCH (n)-[r]->(m) 
+RETURN n, r, m; 
+ 
+MATCH (c:category)<-[pc:belongs_to]-(p:product)<-[lp:for]-(l:listing)-
+[ls:at]->(s:store),(b:brand)<-[pb:made_by]-(p) 
+RETURN  c, p, l, s, b, pc, lp, ls, pb; 
+ 
+Show all coca cola and anchor products at woolworths under $5. 
+MATCH (c:category)<-[pc:belongs_to]-(p:product)<-[lp:for]-(l:listing)-
+[ls:at]->(s:store{store_name:"woolworths"}),(b:brand)<-[pb:made_by]-(p) 
+WHERE b.brand IN["coca cola","anchor"] 
+AND l.sale_price < 5 
+RETURN  c, p, l, s, b, pc, lp, ls, pb; 
+ 
+MATCH (c:category)<-[pc:belongs_to]-(p:product)<-[lp:for]-(l:listing)-
+[ls:at]->(s:store),(b:brand)<-[pb:made_by]-(p) 
+WHERE p.name = "coca cola soft drink zero sugar" 
+RETURN  c, p, l, s, b, pc, lp, ls, pb; 
+ 
+MATCH (c:category)<-[pc:belongs_to]-(p:product)<-[lp:for]-(l:listing)-
+[ls:at]->(s:store),(b:brand)<-[pb:made_by]-(p) 
+WHERE p.name CONTAINS 'milk' 
+RETURN  c, p, l, s, b, pc, lp, ls, pb; 
+ 
+MATCH (c:category)<-[pc:belongs_to]-(p:product)<-[lp:for]-(l:listing)-
+[ls:at]->(s:store),(b:brand)<-[pb:made_by]-(p) 
+RETURN DISTINCT s.store_name;
+ 
+MATCH (n) 
+DETACH DELETE n; 
+ 
+CALL db.relationshipTypes();
